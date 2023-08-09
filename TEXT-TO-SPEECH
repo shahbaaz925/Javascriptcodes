@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text-to-Speech Example</title>
+</head>
+<body>
+    <h1>Text-to-Speech Example</h1>
+    <textarea id="textInput" rows="4" cols="50" placeholder="Type something..."></textarea>
+    <br>
+    <button id="speakButton">Speak</button>
+    
+    <script>
+        const textInput = document.getElementById('textInput');
+        const speakButton = document.getElementById('speakButton');
+        const synth = window.speechSynthesis;
+        
+        speakButton.addEventListener('click', () => {
+            const text = textInput.value;
+            if (text !== '') {
+                const utterance = new SpeechSynthesisUtterance(text);
+                synth.speak(utterance);
+            }
+        });
+    </script>
+</body>
+</html>
